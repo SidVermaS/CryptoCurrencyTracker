@@ -26,3 +26,9 @@ dist-ssr
 # Lock files
 package-lock.json
 yarn.lock
+
+# Env variables
+# .env
+# .env.development
+# .env.staging
+# .env.production

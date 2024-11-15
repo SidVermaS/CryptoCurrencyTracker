@@ -1,6 +1,11 @@
-import React from "react"
+import React from "react";
+import CryptoTable from "./components/CryptoTable";
 
-const HomePage=():React.JSX.Element=>{
-  return <>HomePage</>
-}
-export default HomePage
+const HomePage = (): React.JSX.Element => {
+  return (
+    <>
+      <CryptoTable />
+    </>
+  );
+};
+export default HomePage;

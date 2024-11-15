@@ -1,4 +1,12 @@
 {
+  "compilerOptions": {
+    "target": "ES2021",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "jsx": "react-jsx",
+    // other options...
+  },
+  "include": ["src"],
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
