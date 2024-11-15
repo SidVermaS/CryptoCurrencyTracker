@@ -1,34 +1,33 @@
-import React from 'react'
+import React from "react";
+import { CryptoTablePropsI } from "../../types";
+import { useSelector } from "react-redux";
+import { RootStateI } from "../../../../store/store";
+import CryptoRow from "../CryptoRow";
 
-const CryptoTable = () => {
+const CryptoTable = (props: CryptoTablePropsI):React.JSX.Element => {
+  const { cryptoCurrencies } = useSelector(
+    (state: RootStateI) => state.currencies
+  );
+
+  console.log('111 CryptoTable',cryptoCurrencies.length);
   return (
-    <div><table class="table-auto">
-    <thead>
-      <tr>
-        <th>Song</th>
-        <th>Artist</th>
-        <th>Year</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{'The Sliding Mr. Bones (Next Stop, Pottersville)'.replaceAll('o','m')}</td>
-        <td>Malcolm Lockyer</td>
-        <td>1961</td>
-      </tr>
-      <tr>
-        <td>Witchy Woman</td>
-        <td>The Eagles</td>
-        <td>1972</td>
-      </tr>
-      <tr>
-        <td>Shining Star</td>
-        <td>Earth, Wind, and Fire</td>
-        <td>1975</td>
-      </tr>
-    </tbody>
-  </table></div>
-  )
-}
+    <div>
+      <table className="table-auto">
+        <thead>
+          <tr>
+            {props.columns.map((column, index) => (
+              <th key={index}>{column}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {cryptoCurrencies.map((cryptoCurrency) => (
+            <CryptoRow key={cryptoCurrency.id} {...cryptoCurrency} />
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
-export default CryptoTable
+export default CryptoTable;

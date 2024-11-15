@@ -1,8 +1,6 @@
 import { AxiosError, AxiosRequestConfig } from 'axios'
-import { ApiResponseI, ConfigParamsI, DeleteParamsI, GetParamsI, PatchParamsI, PostParamsI, } from '../types/services/api'
+import { ApiResponseI, ConfigParamsI, DeleteParamsI, GetParamsI, PatchParamsI, PostParamsI, } from '../../types/services/api'
 import api from './apiConfig'
-
-
 
 const _generatePath = (url: string, pathParams?: Record<string, unknown> | undefined): string => {
   if (pathParams && Object.keys(pathParams)?.length) {
