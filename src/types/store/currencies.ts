@@ -8,6 +8,7 @@ export type FiatCurrencyI = {
   code: string;
   title: string;
   image: string;
+  symbol: string;
 }
 export type CryptoCurrencyI = {
   id: string
