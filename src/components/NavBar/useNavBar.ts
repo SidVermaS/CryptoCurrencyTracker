@@ -1,7 +1,7 @@
 // import React from 'react'
 
 const useNavBar = () => {
-  return {}
-}
+  return {};
+};
 
-export default useNavBar
+export default useNavBar;

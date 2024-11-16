@@ -1,3 +1,3 @@
-export type AvatarI ={
-  image: string
-}
+export type AvatarI = {
+  image: string;
+};

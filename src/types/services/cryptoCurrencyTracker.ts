@@ -1,4 +1,4 @@
-export type GetCryptoCurrenciesParamsI ={
+export type GetCryptoCurrenciesParamsI = {
   // per_page:number;
-  vs_currency:string;
-}
+  vs_currency: string;
+};

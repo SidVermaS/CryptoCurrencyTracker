@@ -1,15 +1,15 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
-import tailwindcss from 'tailwindcss'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react-swc';
+import tailwindcss from 'tailwindcss';
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
   build: {
-    target: 'es2021'
+    target: 'es2021',
   },
-  css:{
-    postcss:{
-      plugins:[tailwindcss()]
-    }
-  }
-})
+  css: {
+    postcss: {
+      plugins: [tailwindcss()],
+    },
+  },
+});

@@ -1,12 +1,17 @@
-import React from "react";
-import { CryptoHeadPropsI } from "../../types";
+import React from 'react';
+import { CryptoHeadPropsI } from '../../types';
 
 const CryptoHead = (props: CryptoHeadPropsI): React.JSX.Element => {
   return (
     <thead>
-      <tr  className="mx-10">
+      <tr className="mx-10">
         {props.columns.map((column, index) => (
-          <th key={index} className={`${column.className} py-3 text-sm font-normal text-gray-600 align-baseline md:align-middle`}>{column.title}</th>
+          <th
+            key={index}
+            className={`${column.className} py-3 text-sm font-normal text-gray-600 align-baseline md:align-middle`}
+          >
+            {column.title}
+          </th>
         ))}
       </tr>
     </thead>

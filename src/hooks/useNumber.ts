@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const useNumber = () => {
-  const formatNumber=React.useCallback((num:number)=>{
+  const formatNumber = React.useCallback((num: number) => {
     if (Math.abs(num) >= 1e12) {
       return (num / 1e12).toFixed(1) + 'T';
     } else if (Math.abs(num) >= 1e9) {
@@ -13,10 +13,10 @@ const useNumber = () => {
     } else {
       return num.toFixed(1);
     }
-  },[])
+  }, []);
   return {
-    formatNumber
-  }
-}
+    formatNumber,
+  };
+};
 
-export default useNumber
+export default useNumber;

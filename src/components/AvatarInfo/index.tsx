@@ -1,8 +1,8 @@
-import React from "react";
-import { AvatarInfoI } from "./types";
-import Avatar from "../Avatar";
+import React from 'react';
+import { AvatarInfoI } from './types';
+import Avatar from '../Avatar';
 
-const  AvatarInfo = (props: AvatarInfoI): React.JSX.Element => {
+const AvatarInfo = (props: AvatarInfoI): React.JSX.Element => {
   return (
     <div className="flex items-center space-x-2">
       <Avatar image={props.image} />

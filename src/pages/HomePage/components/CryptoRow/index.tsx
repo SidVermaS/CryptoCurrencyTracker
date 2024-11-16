@@ -1,14 +1,14 @@
-import React from "react";
-import AvatarInfo from "../../../../components/AvatarInfo";
-import { CryptoRowPropsI } from "../../types";
-import useNumber from "../../../../hooks/useNumber";
-import { useSelector } from "react-redux";
-import { RootStateI } from "../../../../store/store";
-import FlucationBadge from "../../../../components/FlucationBadge";
+import React from 'react';
+import AvatarInfo from '../../../../components/AvatarInfo';
+import { CryptoRowPropsI } from '../../types';
+import useNumber from '../../../../hooks/useNumber';
+import { useSelector } from 'react-redux';
+import { RootStateI } from '../../../../store/store';
+import FlucationBadge from '../../../../components/FlucationBadge';
 
 const CryptoRow = (props: CryptoRowPropsI): React.JSX.Element => {
   const { selectedFiatCurrency } = useSelector(
-    (state: RootStateI) => state.currencies
+    (state: RootStateI) => state.currencies,
   );
   const { formatNumber } = useNumber();
   return (

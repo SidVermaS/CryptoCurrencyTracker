@@ -1,1 +1,1 @@
-export const MINUTES_5 = 1000 * 60 * 5
+export const MINUTES_5 = 1000 * 60 * 5;

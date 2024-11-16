@@ -1,9 +1,10 @@
-import React from "react";
-import FiatCurrency from "../FiatCurrency";
-import useDropdownFiatCurrency from "./useDropdownFiatCurrency";
+import React from 'react';
+import FiatCurrency from '../FiatCurrency';
+import useDropdownFiatCurrency from './useDropdownFiatCurrency';
 
 const DropdownFiatCurrency = (): React.JSX.Element => {
-  const {dropdownRef,
+  const {
+    dropdownRef,
     handleFiatCurrencySelection,
     isDropdownOpen,
     selectedFiatCurrency,
@@ -27,8 +28,8 @@ const DropdownFiatCurrency = (): React.JSX.Element => {
         </div>
       </button>
       <div
-      ref={dropdownRef}
-        className={`${isDropdownOpen ? "" : "hidden"} absolute z-50 bg-white rounded-md py-2`}
+        ref={dropdownRef}
+        className={`${isDropdownOpen ? '' : 'hidden'} absolute z-50 bg-white rounded-md py-2`}
       >
         <ul id="fiat-currency-dropdown-menu">
           {fiatCurrencies.map((fiatCurrency) => (

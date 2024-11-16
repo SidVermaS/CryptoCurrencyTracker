@@ -1,6 +1,6 @@
-import React from "react"
+import React from 'react';
 
-const CurrencyPage=():React.JSX.Element=>{
-  return <>CurrencyPage</>
-}
-export default CurrencyPage
+const CurrencyPage = (): React.JSX.Element => {
+  return <>CurrencyPage</>;
+};
+export default CurrencyPage;

@@ -2,12 +2,10 @@
   "compilerOptions": {
     "target": "ES2021",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "module": "esnext", 
+    "module": "esnext"
     // other options...
   },
   "include": ["src"],
   "files": [],
-  "references": [
-    { "path":"./tsconfig.app.json" }
-  ]
+  "references": [{ "path": "./tsconfig.app.json" }]
 }

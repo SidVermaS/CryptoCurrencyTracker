@@ -1,3 +1,3 @@
-export type FlucationBadgePropsI ={
-  unit: number
-}
+export type FlucationBadgePropsI = {
+  unit: number;
+};

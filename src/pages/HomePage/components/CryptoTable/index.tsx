@@ -1,9 +1,9 @@
-import React from "react";
-import { CryptoTablePropsI } from "../../types";
-import CryptoHead from "../CryptoHead";
-import CryptoBody from "../CryptoBody";
+import React from 'react';
+import { CryptoTablePropsI } from '../../types';
+import CryptoHead from '../CryptoHead';
+import CryptoBody from '../CryptoBody';
 
-const CryptoTable = (props: CryptoTablePropsI):React.JSX.Element => {
+const CryptoTable = (props: CryptoTablePropsI): React.JSX.Element => {
   return (
     <div className="sm:rounded-2xl border border-gray-200 overflow-hidden">
       <table className="table-fixed">
