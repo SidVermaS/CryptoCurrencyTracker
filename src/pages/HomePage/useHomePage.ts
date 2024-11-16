@@ -22,7 +22,7 @@ const useHomePage = () => {
       clearInterval(intervalRef!)
       intervalRef = null
     }
-  }, [])
+  }, [dispatch])
   return {cryptoTableColumns}
 }
 export default useHomePage

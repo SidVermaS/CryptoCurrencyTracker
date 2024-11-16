@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { RoutePathsE } from "../../App/routes";
-import useNavBar from "./useNavBar";
+// import useNavBar from "./useNavBar";
 import DropdownFiatCurrency from "../DropdownFiatCurrency";
 import SearchBar from "../SearchBar";
 
   const NavBar = (): React.JSX.Element => {
-    const {} = useNavBar();
+    // const {} = useNavBar();
   return (
     <nav className="bg-white fixed w-full z-10 mx-auto shadow shadow-gray-200">
       <div className="p-3 md:p-4 flex items-center justify-between">

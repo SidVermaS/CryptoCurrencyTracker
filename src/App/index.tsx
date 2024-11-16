@@ -6,7 +6,7 @@ import NavBar from "../components/NavBar";
 const App = (): React.JSX.Element => {
   return (
     <>
-    <NavBar />
+      <NavBar />
       <React.Suspense fallback={<div>Loading...</div>}>
         <Routes>
           {routes.map((route) => (

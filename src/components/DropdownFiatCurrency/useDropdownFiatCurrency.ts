@@ -17,12 +17,12 @@ const useDropdownFiatCurrency = () => {
       dispatch(fetchCryptoCurrencies());
       setIsDropdownOpen(false);
     },
-    [selectFiatCurrency, fetchCryptoCurrencies, setIsDropdownOpen],
+    [dispatch,  setIsDropdownOpen],
   );
   // Toggles the visibility of the dropdown menu
   const toggleDropdown = React.useCallback(() => {
     setIsDropdownOpen((prev) => !prev);
-  }, [setIsDropdownOpen, setIsDropdownOpen]);
+  }, [setIsDropdownOpen, ]);
   const handleClickOutside = React.useCallback(
     (event: MouseEvent) => {
       // Checks whether the mouse pointer was outside the dropdown menu or not
@@ -41,7 +41,8 @@ const useDropdownFiatCurrency = () => {
     document.addEventListener("mousedown", handleClickOutside);
     // Removes the event listener during the destruction of the component
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+    
+  }, [handleClickOutside]);
   return {
     dropdownRef,
     handleFiatCurrencySelection,
