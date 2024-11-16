@@ -47,5 +47,8 @@ export const currenciesSlice = createSlice({
   }
 })
 
-export const { resetCryptoCurrencies } = currenciesSlice.actions
+export const { resetCryptoCurrencies,
+  selectFiatCurrency,
+  resetFiatCurrencies,
+  resetCurrencies } = currenciesSlice.actions
 export default currenciesSlice.reducer

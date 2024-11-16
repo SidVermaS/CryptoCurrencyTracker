@@ -6,7 +6,10 @@ import { RouteI } from "../types/routes";
 const HomePage = React.lazy(() => import('../pages/HomePage'))
 const CurrencyPage = React.lazy(() => import('../pages/CurrencyPage'))
 const NotFoundPage = React.lazy(() => import('../pages/NotFoundPage'))
-
+export enum RoutePathsE{
+  HomePage='/',
+  CurrencyPage='/currency',
+}
 const routes: RouteI[] = [
   {
     path: '/',
