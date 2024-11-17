@@ -12,6 +12,7 @@ const SearchBarXS = (props: SearchBarXSPropsI): React.JSX.Element => {
     handleSearchFocus,
     handleSearchTextChange,
     handleSelectedItem,
+    searchBarParentRef,
     searchBarRef,
     searchedText,
     clearSearchText,
@@ -23,11 +24,12 @@ const SearchBarXS = (props: SearchBarXSPropsI): React.JSX.Element => {
           <ArrowLeftOutlined className="text-gray-500 text-base " />
         </div>
         <div className=" flex items-center basis-full  ml-6">
-          <div className=" basis-[100%] " ref={searchBarRef}>
+          <div className=" basis-[100%] " ref={searchBarParentRef}>
             <input
               className="outline-none caret-purple-500 font-light w-full "
               type="search"
               placeholder="Enter currency..."
+              ref={searchBarRef}
               onChange={handleSearchTextChange}
               value={searchedText}
               onFocus={handleSearchFocus}

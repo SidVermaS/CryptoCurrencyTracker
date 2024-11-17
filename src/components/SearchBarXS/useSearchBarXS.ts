@@ -12,7 +12,8 @@ import { RoutePathsE } from '../../App/routes';
 import { useNavigate } from 'react-router-dom';
 
 const useSearchBarXS = (props: SearchBarXSPropsI) => {
-  const searchBarRef = React.useRef<HTMLDivElement | null>(null);
+  const searchBarParentRef = React.useRef<HTMLDivElement | null>(null);
+  const searchBarRef = React.useRef<HTMLInputElement | null>(null);
   const autoCompleteBarRef = React.useRef<HTMLDivElement | null>(null);
   const { searchedText, cryptoCurrenciesForAutocomplete } = useSelector(
     (state: RootStateI) => state.cryptoCurrencies,
@@ -34,14 +35,16 @@ const useSearchBarXS = (props: SearchBarXSPropsI) => {
   }, [dispatch]);
   React.useEffect(() => {
     handleSearchFocus();
+    // Focuses on the search bar after mounting of the component
+    searchBarRef.current?.focus();
   }, [handleSearchFocus]);
   const handleClickOutside = React.useCallback(
     (event: MouseEvent) => {
       if (
         autoCompleteBarRef.current &&
         !autoCompleteBarRef.current.contains(event.target as Node) &&
-        searchBarRef.current &&
-        !searchBarRef.current.contains(event.target as Node)
+        searchBarParentRef.current &&
+        !searchBarParentRef.current.contains(event.target as Node)
       ) {
         dispatch(updateAutocompleteForCryptoCurrencies(false));
         props.handleClickOutside(false);
@@ -69,6 +72,7 @@ const useSearchBarXS = (props: SearchBarXSPropsI) => {
     handleSearchFocus,
     handleSearchTextChange,
     handleSelectedItem,
+    searchBarParentRef,
     searchBarRef,
     searchedText,
   };

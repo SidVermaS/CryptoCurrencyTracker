@@ -17,5 +17,5 @@ npm run dev
 ```
 
 ## Demo screen recording of the web app
-https://github.com/user-attachments/assets/5a44121f-e0e6-4f2a-ba03-6066194b7639
 
+https://github.com/user-attachments/assets/5a44121f-e0e6-4f2a-ba03-6066194b7639
