@@ -15,7 +15,11 @@ const NavBar = (): React.JSX.Element => {
   ) : (
     <nav className="bg-white fixed w-full h-12 md:h-16 z-10 mx-auto shadow shadow-gray-200">
       <div className="p-3 md:p-4 flex items-center justify-between">
-        <Link className="font-normal" to={RoutePathsE.HomePage}>
+        <Link
+          className="flex items-center font-normal"
+          to={RoutePathsE.HomePage}
+        >
+          <img className="w-6 h-6 mr-2" src="/bitcoin-btc-logo.png" alt="" />
           Crypto Tracker
         </Link>
         <ul className="flex items-center space-x-5">
