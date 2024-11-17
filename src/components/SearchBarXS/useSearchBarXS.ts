@@ -8,6 +8,8 @@ import {
 } from '../../store/reducers/cryptoCurrenciesSlice';
 import { useSelector } from 'react-redux';
 import { SearchBarXSPropsI } from './types';
+import { RoutePathsE } from '../../App/routes';
+import { useNavigate } from 'react-router-dom';
 
 const useSearchBarXS = (props: SearchBarXSPropsI) => {
   const searchBarRef = React.useRef<HTMLDivElement | null>(null);
@@ -16,7 +18,7 @@ const useSearchBarXS = (props: SearchBarXSPropsI) => {
     (state: RootStateI) => state.cryptoCurrencies,
   );
   const dispatch = useAppDispatch();
-
+  const navigate = useNavigate();
   const handleSearchTextChange = React.useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const text = event.target.value;
@@ -51,8 +53,9 @@ const useSearchBarXS = (props: SearchBarXSPropsI) => {
     (id: string) => {
       dispatch(addRecentlySearchedCryptoCurrency(id));
       props.handleClickOutside(false);
+      navigate(RoutePathsE.CurrencyPage.replace(':id', id))
     },
-    [dispatch, props],
+    [dispatch, navigate, props],
   );
   React.useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);

@@ -7,8 +7,12 @@ import {
   updateAutocompleteForCryptoCurrencies,
 } from '../../store/reducers/cryptoCurrenciesSlice';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { RoutePathsE } from '../../App/routes';
 
 const useSearchBar = () => {
+
+  const navigate = useNavigate();
   const searchBarRef = React.useRef<HTMLDivElement | null>(null);
   const autoCompleteBarRef = React.useRef<HTMLDivElement | null>(null);
   const { searchedText, cryptoCurrenciesForAutocomplete } = useSelector(
@@ -46,8 +50,9 @@ const useSearchBar = () => {
   const handleSelectedItem = React.useCallback(
     (id: string) => {
       dispatch(addRecentlySearchedCryptoCurrency(id));
+      navigate(RoutePathsE.CurrencyPage.replace(':id', id))
     },
-    [dispatch],
+    [dispatch,navigate],
   );
   React.useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
