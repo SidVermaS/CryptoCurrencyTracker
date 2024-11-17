@@ -1,29 +1,36 @@
-import React from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import { CryptoCurrencyI } from '../../types/store/cryptoCurrencies'
-import { useSelector } from 'react-redux'
-import { RootStateI } from '../../store/store'
+import React from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { CryptoCurrencyI } from '../../types/store/cryptoCurrencies';
+import { useSelector } from 'react-redux';
+import { RootStateI } from '../../store/store';
+import useNumber from '../../hooks/useNumber';
 
 const useCryptoCurrencyPage = () => {
-  const { id } = useParams()
+  const { id } = useParams();
   const navigate = useNavigate();
-  const [cryptoCurrency, setCryptoCurrency] = React.useState<CryptoCurrencyI>()
+  const { formatNumber } = useNumber();
+  const [cryptoCurrency, setCryptoCurrency] = React.useState<CryptoCurrencyI>();
 
   const { cryptoCurrencies } = useSelector(
     (state: RootStateI) => state.cryptoCurrencies,
   );
+  const { selectedFiatCurrency } = useSelector(
+    (state: RootStateI) => state.fiatCurrencies,
+  );
   const updateCryptoCurrency = React.useCallback(() => {
-    const cryptoCurrencyFound = cryptoCurrencies.find((cryptoCurrency) => cryptoCurrency.id === id)
+    const cryptoCurrencyFound = cryptoCurrencies.find(
+      (cryptoCurrency) => cryptoCurrency.id === id,
+    );
     if (cryptoCurrencyFound) {
-      setCryptoCurrency(cryptoCurrencyFound)
+      setCryptoCurrency(cryptoCurrencyFound);
     } else {
-      navigate('404')
+      navigate('/not-found');
     }
-  }, [id, navigate,setCryptoCurrency,cryptoCurrencies])
+  }, [id, navigate, setCryptoCurrency, cryptoCurrencies]);
   React.useEffect(() => {
-    updateCryptoCurrency()
-  }, [id, updateCryptoCurrency])
-  return { cryptoCurrency }
-}
+    updateCryptoCurrency();
+  }, [id, updateCryptoCurrency]);
+  return { cryptoCurrency, formatNumber, selectedFiatCurrency };
+};
 
-export default useCryptoCurrencyPage
+export default useCryptoCurrencyPage;

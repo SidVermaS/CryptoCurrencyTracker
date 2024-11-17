@@ -53,7 +53,7 @@ const useSearchBarXS = (props: SearchBarXSPropsI) => {
     (id: string) => {
       dispatch(addRecentlySearchedCryptoCurrency(id));
       props.handleClickOutside(false);
-      navigate(RoutePathsE.CurrencyPage.replace(':id', id))
+      navigate(RoutePathsE.CurrencyPage.replace(':id', id));
     },
     [dispatch, navigate, props],
   );

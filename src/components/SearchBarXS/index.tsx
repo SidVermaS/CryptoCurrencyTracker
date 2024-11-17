@@ -7,7 +7,6 @@ import AutoComplete from '../AutoComplete';
 import { SearchBarXSPropsI } from './types';
 
 const SearchBarXS = (props: SearchBarXSPropsI): React.JSX.Element => {
-
   const {
     autoCompleteBarRef,
     handleSearchFocus,

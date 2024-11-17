@@ -11,7 +11,6 @@ import { useNavigate } from 'react-router-dom';
 import { RoutePathsE } from '../../App/routes';
 
 const useSearchBar = () => {
-
   const navigate = useNavigate();
   const searchBarRef = React.useRef<HTMLDivElement | null>(null);
   const autoCompleteBarRef = React.useRef<HTMLDivElement | null>(null);
@@ -50,9 +49,9 @@ const useSearchBar = () => {
   const handleSelectedItem = React.useCallback(
     (id: string) => {
       dispatch(addRecentlySearchedCryptoCurrency(id));
-      navigate(RoutePathsE.CurrencyPage.replace(':id', id))
+      navigate(RoutePathsE.CurrencyPage.replace(':id', id));
     },
-    [dispatch,navigate],
+    [dispatch, navigate],
   );
   React.useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
