@@ -16,4 +16,4 @@ const Card = (props: CardPropsI): React.JSX.Element => {
   );
 };
 
-export default React.memo(Card);
+export default Card;

@@ -29,7 +29,7 @@ const useCryptoCurrencyPage = () => {
   }, [id, navigate, setCryptoCurrency, cryptoCurrencies]);
   React.useEffect(() => {
     updateCryptoCurrency();
-  }, [id, updateCryptoCurrency]);
+  }, [id, cryptoCurrencies, updateCryptoCurrency]);
   return { cryptoCurrency, formatNumber, selectedFiatCurrency };
 };
 

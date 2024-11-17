@@ -39,13 +39,7 @@ const CryptoCurrencyPage = (): React.JSX.Element => {
                     subTitle: 'Total volume)',
                   },
                   {
-                    icon: (
-                      <div className="text-6xl rounded-full">
-                        {cryptoCurrency?.price_change_percentage_24h > -1
-                          ? '📈'
-                          : '📉'}
-                      </div>
-                    ),
+                    icon: <div className="text-6xl">📊</div>,
                     title: `${formatNumber(cryptoCurrency?.price_change_percentage_24h)}%`,
                     subTitle: 'Change in 24h',
                   },
@@ -56,12 +50,12 @@ const CryptoCurrencyPage = (): React.JSX.Element => {
                   },
                   {
                     icon: <div className="text-6xl">📈</div>,
-                    title: String(cryptoCurrency?.ath),
+                    title: `${selectedFiatCurrency.symbol}${formatNumber(cryptoCurrency?.ath)}`,
                     subTitle: 'All time high',
                   },
                   {
                     icon: <div className="text-6xl">📉 </div>,
-                    title: String(cryptoCurrency?.atl),
+                    title: `${selectedFiatCurrency.symbol}${formatNumber(cryptoCurrency?.atl)}`,
                     subTitle: 'All time low',
                   },
                   {
