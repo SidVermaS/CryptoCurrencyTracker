@@ -26,10 +26,6 @@ export const fiatCurrenciesSlice = createSlice({
   },
 });
 
-export const {
-
-  selectFiatCurrency,
-  resetFiatCurrencies,
-
-} = fiatCurrenciesSlice.actions;
+export const { selectFiatCurrency, resetFiatCurrencies } =
+  fiatCurrenciesSlice.actions;
 export default fiatCurrenciesSlice.reducer;

@@ -9,16 +9,15 @@ const initialState: CryptoCurrenciesStateI = {
   isLoadingCryptoCurrencies: false,
   errorCryptoCurrencies: null,
   recentlySearchedCryptoCurrencies: [],
-  cryptoCurrenciesForAutocomplete: []
+  cryptoCurrenciesForAutocomplete: [],
 };
 export const cryptoCurrenciesSlice = createSlice({
   name: 'cryptoCurrencies',
   initialState,
   reducers: {
     addRecentlySearchedCryptoCurrency: (state, action) => {
-
       // id of the searched crypto currency
-      const id = action.payload
+      const id = action.payload;
 
       // Searches for the crypto currency in our list whose id is matching
       const searchedCryptoCurrency = current(state.cryptoCurrencies).find(
@@ -27,29 +26,36 @@ export const cryptoCurrenciesSlice = createSlice({
 
       // If the crypto currency is available in our list then we'll push the searchedCryptoCurrency to the recentlySearchedCryptoCurrencies
       if (searchedCryptoCurrency) {
-        const alreadyExistingIndex = current(state.recentlySearchedCryptoCurrencies).findIndex(
-          (item) => item.id === id,
-        )
+        const alreadyExistingIndex = current(
+          state.recentlySearchedCryptoCurrencies,
+        ).findIndex((item) => item.id === id);
         if (alreadyExistingIndex !== -1) {
-          state.recentlySearchedCryptoCurrencies.splice(alreadyExistingIndex, 1)
+          state.recentlySearchedCryptoCurrencies.splice(
+            alreadyExistingIndex,
+            1,
+          );
         }
-        (state.recentlySearchedCryptoCurrencies).unshift(searchedCryptoCurrency)
+        state.recentlySearchedCryptoCurrencies.unshift(searchedCryptoCurrency);
       }
       // If the recentlySearchedCryptoCurrencies exceeds the maximum limit then we'll pop the last item
-      if (state.recentlySearchedCryptoCurrencies?.length
-        > MAX_RECENTLY_SEARCHED_CRYPTO_CURRENCIES_LIMIT) {
-        state.recentlySearchedCryptoCurrencies.pop()
+      if (
+        state.recentlySearchedCryptoCurrencies?.length >
+        MAX_RECENTLY_SEARCHED_CRYPTO_CURRENCIES_LIMIT
+      ) {
+        state.recentlySearchedCryptoCurrencies.pop();
       }
-      state.searchedText = ''
-      state.cryptoCurrenciesForAutocomplete = []
+      state.searchedText = '';
+      state.cryptoCurrenciesForAutocomplete = [];
     },
     updateAutocompleteForCryptoCurrencies: (state, action) => {
       const isFocused = action.payload;
       if (isFocused) {
-        state.cryptoCurrenciesForAutocomplete = state.recentlySearchedCryptoCurrencies
+        state.cryptoCurrenciesForAutocomplete =
+          state.recentlySearchedCryptoCurrencies;
       } else {
-        // state.cryptoCurrenciesForAutocomplete = []
-        // state.searchedText = ''
+        state.cryptoCurrenciesForAutocomplete = [];
+        // Clears the searched text from the search box
+        state.searchedText = '';
       }
     },
     resetCryptoCurrencies: (state) => {
@@ -64,23 +70,23 @@ export const cryptoCurrenciesSlice = createSlice({
       state.recentlySearchedCryptoCurrencies = [];
     },
     searchCryptoCurrency: (state, action) => {
-      state.searchedText = String(action.payload)
+      state.searchedText = String(action.payload);
       const searchedText: string = String(action.payload).toLowerCase();
       // Filter CryptoCurrencies if the searchedText exists in id, name & symbol
       const filteredCryptoCurrencies = state.cryptoCurrencies.filter(
         (cryptoCurrency) =>
           [
-            (cryptoCurrency.id.toLowerCase()).includes(searchedText),
-            (cryptoCurrency.name.toLowerCase()).includes(searchedText),
-            (cryptoCurrency.symbol.toLowerCase()).includes(searchedText),
+            cryptoCurrency.id.toLowerCase().includes(searchedText),
+            cryptoCurrency.name.toLowerCase().includes(searchedText),
+            cryptoCurrency.symbol.toLowerCase().includes(searchedText),
           ].includes(true),
       );
       // Update the cryptoCurrenciesForAutocomplete to be rendered in the autocomplete component
       state.cryptoCurrenciesForAutocomplete = filteredCryptoCurrencies;
     },
-    resetSearchedText: (state,) => {
-      state.searchedText = ''
-    }
+    resetSearchedText: (state) => {
+      state.searchedText = '';
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -99,9 +105,12 @@ export const cryptoCurrenciesSlice = createSlice({
   },
 });
 
-export const { addRecentlySearchedCryptoCurrency, updateAutocompleteForCryptoCurrencies,
+export const {
+  addRecentlySearchedCryptoCurrency,
+  updateAutocompleteForCryptoCurrencies,
   resetCryptoCurrencies,
-  searchCryptoCurrency, resetCryptoCurrenciesForAutocomplete,
-  resetSearchedText
+  searchCryptoCurrency,
+  resetCryptoCurrenciesForAutocomplete,
+  resetSearchedText,
 } = cryptoCurrenciesSlice.actions;
 export default cryptoCurrenciesSlice.reducer;

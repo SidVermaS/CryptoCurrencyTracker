@@ -1,4 +1,3 @@
-
 export type FiatCurrencyI = {
   id: string;
   code: string;
@@ -7,7 +6,7 @@ export type FiatCurrencyI = {
   symbol: string;
 };
 
-export type  FiatCurrenciesStateI = {
+export type FiatCurrenciesStateI = {
   fiatCurrencies: FiatCurrencyI[];
   selectedFiatCurrency: FiatCurrencyI;
 };

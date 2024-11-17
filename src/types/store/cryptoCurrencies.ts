@@ -33,8 +33,8 @@ export type CryptoCurrencyI = {
   last_updated: string;
 };
 
-export type  CryptoCurrenciesStateI = {
-  searchedText:string;
+export type CryptoCurrenciesStateI = {
+  searchedText: string;
   cryptoCurrencies: CryptoCurrencyI[];
   recentlySearchedCryptoCurrencies: CryptoCurrencyI[];
   cryptoCurrenciesForAutocomplete: CryptoCurrencyI[];

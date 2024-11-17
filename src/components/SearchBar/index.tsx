@@ -4,22 +4,23 @@ import useSearchBar from './useSearchBar';
 import AvatarInfo from '../AvatarInfo';
 
 const SearchBar = (): React.JSX.Element => {
-  const {autoCompleteBarRef,
+  const {
+    autoCompleteBarRef,
     cryptoCurrenciesForAutocomplete,
+    handleSearchFocus,
     handleSearchTextChange,
     handleSelectedItem,
-    isFocused,
     searchBarRef,
     searchedText,
     clearSearchText,
-    updateIsFocused,
   } = useSearchBar();
 
   return (
     <>
       <div
         ref={searchBarRef}
-        className="flex items-center  w-[20rem] rounded-full border focus:none justify-between px-3 py-0.5">
+        className="flex items-center  w-[20rem] rounded-full border focus:none justify-between px-3 py-0.5"
+      >
         <SearchOutlined className="text-gray-400 text-base" />
         <input
           className="mx-1 outline-none caret-purple-500 font-light"
@@ -27,25 +28,27 @@ const SearchBar = (): React.JSX.Element => {
           placeholder="Enter currency..."
           onChange={handleSearchTextChange}
           value={searchedText}
-          onFocus={updateIsFocused.bind(this, true)}
-          // onBlur={updateIsFocused.bind(this, false)}
+          onFocus={handleSearchFocus}
         />
         <div
           className="font-light text-2xl items-center text-gray-400 text-center"
-          onClick={clearSearchText}>
+          onClick={clearSearchText}
+        >
           &times;
         </div>
       </div>
       <div
         ref={autoCompleteBarRef}
-        className="absolute bg-white z-10 shadow shadow-gray-200 rounded-lg  w-[20rem]">      
+        className="absolute bg-white z-10 shadow shadow-gray-200 rounded-lg  w-[20rem]"
+      >
         {searchedText?.length ? (
           cryptoCurrenciesForAutocomplete?.length ? (
             <div className="py-2 px-3 cursor-pointer">
               {cryptoCurrenciesForAutocomplete.map((cryptoCurrency) => (
                 <div
                   key={cryptoCurrency.id}
-                  onClick={handleSelectedItem.bind(this, cryptoCurrency.id)}>
+                  onClick={handleSelectedItem.bind(this, cryptoCurrency.id)}
+                >
                   <AvatarInfo {...cryptoCurrency} isInline={true} />
                 </div>
               ))}
@@ -55,11 +58,12 @@ const SearchBar = (): React.JSX.Element => {
           )
         ) : cryptoCurrenciesForAutocomplete?.length ? (
           <div className="py-2 px-3 cursor-pointer">
-            <div className="font-light text-sm mb-1">Recents</div>
+            <div className="font-normal text-gray-500 text-sm mb-1">Recent</div>
             {cryptoCurrenciesForAutocomplete.map((cryptoCurrency) => (
               <div
                 key={cryptoCurrency.id}
-                onClick={handleSelectedItem.bind(this, cryptoCurrency.id)}>
+                onClick={handleSelectedItem.bind(this, cryptoCurrency.id)}
+              >
                 <AvatarInfo {...cryptoCurrency} isInline={true} />
               </div>
             ))}
