@@ -1,4 +1,4 @@
-import { CryptoCurrencyI } from '../../types/store/currencies';
+import { CryptoCurrencyI } from '../../types/store/cryptoCurrencies';
 
 export type CryptoHeadColumnI = {
   className: string;

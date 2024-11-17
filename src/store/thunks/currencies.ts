@@ -1,16 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { CryptoCurrencyI } from '../../types/store/currencies';
+import { CryptoCurrencyI } from '../../types/store/cryptoCurrencies';
 import { getCryptoCurrencies } from '../../services/cryptoCurrencyTracker';
 import { RootStateI } from '../store';
 
 export const fetchCryptoCurrencies = createAsyncThunk<CryptoCurrencyI[], void>(
   'cryptoCurrencies/fetchAll',
   async (_, thunkAPI) => {
-    console.log('111 br fetchCryptoCurrencies');
-
     const state = thunkAPI.getState() as RootStateI;
     const response = await getCryptoCurrencies({
-      vs_currency: state.currencies.selectedFiatCurrency.id,
+      vs_currency: state.fiatCurrencies.selectedFiatCurrency.id,
     });
     if (response?.error) {
       throw response?.error;

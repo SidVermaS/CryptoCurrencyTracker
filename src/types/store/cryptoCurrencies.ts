@@ -3,13 +3,7 @@ export type Roi = {
   currency: string;
   percentage: number;
 };
-export type FiatCurrencyI = {
-  id: string;
-  code: string;
-  title: string;
-  image: string;
-  symbol: string;
-};
+
 export type CryptoCurrencyI = {
   id: string;
   symbol: string;
@@ -39,10 +33,11 @@ export type CryptoCurrencyI = {
   last_updated: string;
 };
 
-export type CurrenciesStateI = {
-  fiatCurrencies: FiatCurrencyI[];
-  selectedFiatCurrency: FiatCurrencyI;
+export type  CryptoCurrenciesStateI = {
+  searchedText:string;
   cryptoCurrencies: CryptoCurrencyI[];
+  recentlySearchedCryptoCurrencies: CryptoCurrencyI[];
+  cryptoCurrenciesForAutocomplete: CryptoCurrencyI[];
   errorCryptoCurrencies: string | null | undefined;
   isLoadingCryptoCurrencies: boolean;
 };

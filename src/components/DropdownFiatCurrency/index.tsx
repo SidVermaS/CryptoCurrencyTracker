@@ -34,6 +34,7 @@ const DropdownFiatCurrency = (): React.JSX.Element => {
         <ul id="fiat-currency-dropdown-menu">
           {fiatCurrencies.map((fiatCurrency) => (
             <li
+            key={fiatCurrency.id}
               onClick={handleFiatCurrencySelection.bind(this, fiatCurrency.id)}
             >
               <FiatCurrency {...fiatCurrency} />

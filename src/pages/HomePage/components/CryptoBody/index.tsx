@@ -5,7 +5,7 @@ import CryptoRow from '../CryptoRow';
 
 const CryptoBody = (): React.JSX.Element => {
   const { cryptoCurrencies } = useSelector(
-    (state: RootStateI) => state.currencies,
+    (state: RootStateI) => state.cryptoCurrencies,
   );
   return (
     <tbody>

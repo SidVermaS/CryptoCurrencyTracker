@@ -1,4 +1,4 @@
-import { FiatCurrencyI } from '../../types/store/currencies';
+import { FiatCurrencyI } from '../../types/store/cryptoCurrencies';
 
 export const fiatCurrencies: FiatCurrencyI[] = [
   {

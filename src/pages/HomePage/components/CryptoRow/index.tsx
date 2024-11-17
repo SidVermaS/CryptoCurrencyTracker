@@ -8,7 +8,7 @@ import FlucationBadge from '../../../../components/FlucationBadge';
 
 const CryptoRow = (props: CryptoRowPropsI): React.JSX.Element => {
   const { selectedFiatCurrency } = useSelector(
-    (state: RootStateI) => state.currencies,
+    (state: RootStateI) => state.fiatCurrencies,
   );
   const { formatNumber } = useNumber();
   return (

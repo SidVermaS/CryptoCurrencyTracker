@@ -1,13 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootStateI, useAppDispatch } from '../../store/store';
-import { selectFiatCurrency } from '../../store/reducers/currenciesSlice';
+import { selectFiatCurrency } from '../../store/reducers/fiatCurrenciesSlice';
 import { fetchCryptoCurrencies } from '../../store/thunks/currencies';
 
 const useDropdownFiatCurrency = () => {
   const dropdownRef = React.useRef<HTMLDivElement | null>(null);
   const { selectedFiatCurrency, fiatCurrencies } = useSelector(
-    (state: RootStateI) => state.currencies,
+    (state: RootStateI) => state.fiatCurrencies,
   );
   const [isDropdownOpen, setIsDropdownOpen] = React.useState<boolean>(false);
   const dispatch = useAppDispatch();
