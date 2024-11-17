@@ -7,8 +7,9 @@ import {
   updateAutocompleteForCryptoCurrencies,
 } from '../../store/reducers/cryptoCurrenciesSlice';
 import { useSelector } from 'react-redux';
+import { SearchBarXSPropsI } from './types';
 
-const useSearchBar = () => {
+const useSearchBarXS = (props: SearchBarXSPropsI) => {
   const searchBarRef = React.useRef<HTMLDivElement | null>(null);
   const autoCompleteBarRef = React.useRef<HTMLDivElement | null>(null);
   const { searchedText, cryptoCurrenciesForAutocomplete } = useSelector(
@@ -29,6 +30,9 @@ const useSearchBar = () => {
   const handleSearchFocus = React.useCallback(() => {
     dispatch(updateAutocompleteForCryptoCurrencies(true));
   }, [dispatch]);
+  React.useEffect(() => {
+    handleSearchFocus();
+  }, [handleSearchFocus]);
   const handleClickOutside = React.useCallback(
     (event: MouseEvent) => {
       if (
@@ -38,16 +42,17 @@ const useSearchBar = () => {
         !searchBarRef.current.contains(event.target as Node)
       ) {
         dispatch(updateAutocompleteForCryptoCurrencies(false));
+        props.handleClickOutside(false);
       }
     },
-    [dispatch],
+    [dispatch, props],
   );
-
   const handleSelectedItem = React.useCallback(
     (id: string) => {
       dispatch(addRecentlySearchedCryptoCurrency(id));
+      props.handleClickOutside(false);
     },
-    [dispatch],
+    [dispatch, props],
   );
   React.useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
@@ -66,4 +71,4 @@ const useSearchBar = () => {
   };
 };
 
-export default useSearchBar;
+export default useSearchBarXS;

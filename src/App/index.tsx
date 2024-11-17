@@ -7,17 +7,19 @@ const App = (): React.JSX.Element => {
   return (
     <>
       <NavBar />
-      <React.Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          {routes.map((route) => (
-            <Route
-              key={route.path}
-              path={route.path}
-              Component={route.component}
-            />
-          ))}
-        </Routes>
-      </React.Suspense>
+      <main className="pt-12 md:pt-16">
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            {routes.map((route) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                Component={route.component}
+              />
+            ))}
+          </Routes>
+        </React.Suspense>
+      </main>
     </>
   );
 };
