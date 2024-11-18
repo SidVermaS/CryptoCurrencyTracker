@@ -38,11 +38,11 @@ const SearchBarXS = (props: SearchBarXSPropsI): React.JSX.Element => {
           <div className="ml-6  ">
             {searchedText?.length ? (
               <CloseOutlined
-                className="text-gray-400 text-base "
+                className="text-gray-500 text-base "
                 onClick={clearSearchText}
               />
             ) : (
-              <SearchOutlined className="text-gray-400 text-base " />
+              <SearchOutlined className="text-gray-500 text-base " />
             )}
           </div>
         </div>

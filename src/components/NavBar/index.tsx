@@ -29,7 +29,7 @@ const NavBar = (): React.JSX.Element => {
               <SearchBar />
             </div>
             <SearchOutlined
-              className="text-gray-700 text-base md:hidden"
+              className="text-gray-500 text-base md:hidden"
               onClick={updateIsSearchIconClicked.bind(this, true)}
             />
           </li>
