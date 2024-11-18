@@ -8,9 +8,17 @@ import SearchOutlined from '@ant-design/icons/lib/icons/SearchOutlined';
 
 import { breakpoints } from '../../consts/responsive';
 import SearchBarXS from '../SearchBarXS';
+import SunOutlined from '@ant-design/icons/lib/icons/SunOutlined';
+import MoonOutlined from '@ant-design/icons/lib/icons/MoonOutlined';
 
 const NavBar = (): React.JSX.Element => {
-  const { isSearchIconClicked, updateIsSearchIconClicked, width } = useNavBar();
+  const {
+    isSearchIconClicked,
+    theme,
+    updateTheme,
+    updateIsSearchIconClicked,
+    width,
+  } = useNavBar();
   return isSearchIconClicked && width <= breakpoints.md ? (
     <SearchBarXS handleClickOutside={updateIsSearchIconClicked} />
   ) : (
@@ -18,12 +26,11 @@ const NavBar = (): React.JSX.Element => {
       <div className="p-3 md:p-4 flex items-center justify-between">
         <Link
           className="flex items-center font-normal"
-          to={RoutePathsE.HomePage}
-        >
+          to={RoutePathsE.HomePage}>
           <img className="w-6 h-6 mr-2" src="/bitcoin-btc-logo.png" alt="" />
           Crypto Tracker
         </Link>
-        <ul className="flex items-center space-x-5">
+        <ul className="flex items-center space-x-3">
           <li>
             <div className="hidden md:block">
               <SearchBar />
@@ -33,8 +40,15 @@ const NavBar = (): React.JSX.Element => {
               onClick={updateIsSearchIconClicked.bind(this, true)}
             />
           </li>
-          <li>
+          <li className=''>
             <DropdownFiatCurrency />
+          </li>
+          <li className=' ' onClick={updateTheme}>
+            {theme === 'light' ? (
+              <SunOutlined className="text-gray-500 text-base " />
+            ) : (
+              <MoonOutlined className="text-gray-500 text-base "  />
+            )}
           </li>
         </ul>
       </div>

@@ -71,8 +71,8 @@ const CryptoCurrencyPage = (): React.JSX.Element => {
                     subTitle: 'Last updated',
                   },
                 ] as CardPropsI[]
-              ).map((currencyData) => (
-                <Card {...currencyData} />
+              ).map((currencyData, index) => (
+                <Card key={index} {...currencyData} />
               ))}
             </div>
           </div>
