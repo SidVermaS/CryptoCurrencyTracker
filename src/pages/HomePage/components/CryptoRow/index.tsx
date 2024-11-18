@@ -12,7 +12,7 @@ const CryptoRow = (props: CryptoRowPropsI): React.JSX.Element => {
   );
   const { formatNumber } = useNumber();
   return (
-    <tr className="hover:bg-slate-100">
+    <tr className="hover:bg-loiter-light dark:hover:bg-loiter-dark dark:text-primary-dark ">
       <td className="py-1 md:py-3 pl-1 md:pl-3">
         <AvatarInfo {...props} />
       </td>
@@ -25,7 +25,7 @@ const CryptoRow = (props: CryptoRowPropsI): React.JSX.Element => {
         {formatNumber(props.market_cap)}
       </td>
       <td className="text-right py-1 md:py-3 pr-1 md:pr-2 text-sm font-normal mr-0">
-        <div className="lg:w-20 text-right  ml-auto">
+        <div className="lg:w-20 text-right ml-auto">
           <FlucationBadge unit={props.price_change_percentage_24h} />
         </div>
       </td>

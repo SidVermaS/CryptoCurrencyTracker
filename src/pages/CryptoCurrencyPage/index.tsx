@@ -7,7 +7,7 @@ const CryptoCurrencyPage = (): React.JSX.Element => {
   const { cryptoCurrency, formatNumber, selectedFiatCurrency } =
     useCryptoCurrencyPage();
   return (
-    <div className=" min-h-screen py-4">
+    <div className="bg-primary-light dark:bg-primary-dark  min-h-screen py-4">
       {cryptoCurrency ? (
         <div className="flex justify-center">
           <div className="flex flex-col">
@@ -71,8 +71,8 @@ const CryptoCurrencyPage = (): React.JSX.Element => {
                     subTitle: 'Last updated',
                   },
                 ] as CardPropsI[]
-              ).map((currencyData) => (
-                <Card {...currencyData} />
+              ).map((currencyData, index) => (
+                <Card key={index} {...currencyData} />
               ))}
             </div>
           </div>

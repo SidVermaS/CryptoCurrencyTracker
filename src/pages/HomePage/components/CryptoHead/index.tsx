@@ -8,7 +8,7 @@ const CryptoHead = (props: CryptoHeadPropsI): React.JSX.Element => {
         {props.columns.map((column, index) => (
           <th
             key={index}
-            className={`${column.className} py-3 text-sm font-normal text-gray-600 align-baseline md:align-middle`}
+            className={`${column.className} py-3 text-sm font-normal text-gray-600 align-baseline md:align-middle dark:text-secondary-dark`}
           >
             {column.title}
           </th>
