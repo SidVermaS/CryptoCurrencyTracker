@@ -1,6 +1,6 @@
 # Crypto Tracker App
 
-On this responsive web app, we can search for the crypto currencies & switch between the fiat currencies.
+On this responsive web app (supporting light/dark themes), we can search for the crypto currencies & switch between the fiat currencies.
 
 ## Steps to run the application on local
 

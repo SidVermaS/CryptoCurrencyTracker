@@ -4,11 +4,15 @@ import useHomePage from './useHomePage';
 import Loader from '../../components/Loader';
 
 const HomePage = (): React.JSX.Element => {
-  const { cryptoTableColumns, isLoadingCryptoCurrencies } = useHomePage();
+  const {
+    cryptoTableColumns,
+    errorCryptoCurrencies:_errorCryptoCurrencies,
+    isLoadingCryptoCurrencies,
+  } = useHomePage();
   return (
-    <div className="flex items-center justify-center min-h-screen sm:py-4 md:py-10 ">
+    <div className="bg-primary-light dark:bg-primary-dark flex items-center justify-center min-h-screen sm:py-4 md:py-10 ">
       {isLoadingCryptoCurrencies ? (
-        <Loader/>
+        <Loader />
       ) : (
         <CryptoTable columns={cryptoTableColumns} />
       )}

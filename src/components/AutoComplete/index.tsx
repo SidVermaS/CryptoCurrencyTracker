@@ -6,7 +6,7 @@ import { AutoCompletePropsI } from './types';
 const AutoComplete = (props: AutoCompletePropsI): React.JSX.Element => {
   const { cryptoCurrenciesForAutocomplete, searchedText } = useAutoComplete();
   return (
-    <div className="absolute bg-white z-10 shadow shadow-gray-200 rounded-lg  w-[20rem]">
+    <div className="absolute bg-primary-light dark:bg-primary-dark z-10 shadow shadow-tertiary-light dark:shadow-tertiary-dark rounded-lg  w-[20rem]">
       {searchedText?.length ? (
         cryptoCurrenciesForAutocomplete?.length ? (
           <div className="py-2 px-3 cursor-pointer">
@@ -20,7 +20,7 @@ const AutoComplete = (props: AutoCompletePropsI): React.JSX.Element => {
             ))}
           </div>
         ) : (
-          <div className="py-2 px-3 font-light">No results found</div>
+          <div className="py-2 px-3 font-light dark:text-primary-dark">No results found</div>
         )
       ) : cryptoCurrenciesForAutocomplete?.length ? (
         <div className="py-2 px-3 cursor-pointer">

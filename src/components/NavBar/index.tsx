@@ -22,10 +22,10 @@ const NavBar = (): React.JSX.Element => {
   return isSearchIconClicked && width <= breakpoints.md ? (
     <SearchBarXS handleClickOutside={updateIsSearchIconClicked} />
   ) : (
-    <nav className="bg-white fixed w-full h-12 md:h-16 z-10 mx-auto shadow shadow-gray-200">
+    <nav className="bg-primary-light dark:bg-primary-dark fixed w-full h-12 md:h-16 z-10 mx-auto shadow shadow-tertiary-light dark:shadow-tertiary-dark">
       <div className="p-3 md:p-4 flex items-center justify-between">
         <Link
-          className="flex items-center font-normal"
+          className="flex items-center font-normal dark:text-primary-dark"
           to={RoutePathsE.HomePage}>
           <img className="w-6 h-6 mr-2" src="/bitcoin-btc-logo.png" alt="" />
           Crypto Tracker
@@ -40,14 +40,14 @@ const NavBar = (): React.JSX.Element => {
               onClick={updateIsSearchIconClicked.bind(this, true)}
             />
           </li>
-          <li className=''>
+          <li className="">
             <DropdownFiatCurrency />
           </li>
-          <li className=' ' onClick={updateTheme}>
+          <li className=" " onClick={updateTheme}>
             {theme === 'light' ? (
-              <SunOutlined className="text-gray-500 text-base " />
+              <SunOutlined className="text-gray-500 text-base dark:text-primary-dark" />
             ) : (
-              <MoonOutlined className="text-gray-500 text-base "  />
+              <MoonOutlined className="text-gray-500 text-base " />
             )}
           </li>
         </ul>

@@ -12,7 +12,7 @@ export const cryptoTableColumns: CryptoHeadColumnI[] = [
 ];
 const useHomePage = () => {
   const dispatch = useAppDispatch();
-  const {isLoadingCryptoCurrencies}=useSelector((state:RootStateI)=>state.cryptoCurrencies)
+  const {isLoadingCryptoCurrencies,errorCryptoCurrencies}=useSelector((state:RootStateI)=>state.cryptoCurrencies)
   // Updates the latest data after every 5 minutes
   React.useEffect(() => {
     dispatch(fetchCryptoCurrencies());
@@ -25,6 +25,6 @@ const useHomePage = () => {
       intervalRef = null;
     };
   }, [dispatch]);
-  return { cryptoTableColumns,isLoadingCryptoCurrencies };
+  return { cryptoTableColumns,errorCryptoCurrencies,isLoadingCryptoCurrencies };
 };
 export default useHomePage;
