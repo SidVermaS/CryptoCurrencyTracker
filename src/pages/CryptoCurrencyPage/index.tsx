@@ -36,7 +36,7 @@ const CryptoCurrencyPage = (): React.JSX.Element => {
                   {
                     icon: <div className="text-6xl">💰</div>,
                     title: `${selectedFiatCurrency.symbol}${formatNumber(cryptoCurrency?.total_volume)}`,
-                    subTitle: 'Total volume)',
+                    subTitle: 'Total volume',
                   },
                   {
                     icon: <div className="text-6xl">📊</div>,
