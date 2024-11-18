@@ -1,11 +1,12 @@
 import React from 'react';
 import Loader from '../Loader';
+import Layout from '../Layout';
 
 const Fallback = (): React.JSX.Element => {
   return (
-    <div className="fixed inset-0 flex justify-center items-center  h-full min-h-full max-h-full">
+    <Layout>
       <Loader />
-    </div>
+    </Layout>
   );
 };
 

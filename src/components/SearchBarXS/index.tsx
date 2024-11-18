@@ -19,14 +19,14 @@ const SearchBarXS = (props: SearchBarXSPropsI): React.JSX.Element => {
   } = useSearchBarXS(props);
   return (
     <>
-      <nav className="bg-white flex items-center fixed w-full h-12 md:h-16 z-10 mx-auto shadow shadow-gray-200 px-6">
+      <nav className="bg-primary-light dark:bg-primary-dark flex items-center fixed w-full h-12 md:h-16 z-10 mx-auto shadow shadow-gray-200 px-6">
         <div>
           <ArrowLeftOutlined className="text-gray-500 text-base " />
         </div>
         <div className=" flex items-center basis-full  ml-6">
           <div className=" basis-[100%] " ref={searchBarParentRef}>
             <input
-              className="outline-none caret-purple-500 font-light w-full "
+              className="outline-none caret-purple-500 font-light w-full bg-primary-light dark:bg-primary-dark dark:text-primary-dark"
               type="search"
               placeholder="Enter currency..."
               ref={searchBarRef}
