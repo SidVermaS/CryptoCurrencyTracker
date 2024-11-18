@@ -4,8 +4,10 @@ import { RootStateI } from '../store/store'
 
 const useTheme = () => {
   const { theme } = useSelector((state: RootStateI) => state.settings)
-  const 
-  return {}
+  const updateTheme = React.useCallback(() => {
+
+  }, [])
+  return { theme }
 }
 
 export default useTheme

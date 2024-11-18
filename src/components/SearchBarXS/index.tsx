@@ -1,4 +1,6 @@
-import { MdSearch, MdArrowBack, MdOutlineClose } from 'react-icons/md';
+import ArrowLeftOutlined from '@ant-design/icons/lib/icons/ArrowLeftOutlined';
+import CloseOutlined from '@ant-design/icons/lib/icons/CloseOutlined';
+import SearchOutlined from '@ant-design/icons/lib/icons/SearchOutlined';
 import React from 'react';
 import useSearchBarXS from './useSearchBarXS';
 import AutoComplete from '../AutoComplete';
@@ -19,7 +21,7 @@ const SearchBarXS = (props: SearchBarXSPropsI): React.JSX.Element => {
     <>
       <nav className="bg-white flex items-center fixed w-full h-12 md:h-16 z-10 mx-auto shadow shadow-gray-200 px-6">
         <div>
-          <MdArrowBack className="text-gray-500 text-base " />
+          <ArrowLeftOutlined className="text-gray-500 text-base " />
         </div>
         <div className=" flex items-center basis-full  ml-6">
           <div className=" basis-[100%] " ref={searchBarParentRef}>
@@ -35,12 +37,12 @@ const SearchBarXS = (props: SearchBarXSPropsI): React.JSX.Element => {
           </div>
           <div className="ml-6  ">
             {searchedText?.length ? (
-              <MdOutlineClose
-                className="text-gray-500 text-base "
+              <CloseOutlined
+                className="text-gray-400 text-base "
                 onClick={clearSearchText}
               />
             ) : (
-              <MdSearch className="text-gray-500 text-base " />
+              <SearchOutlined className="text-gray-400 text-base " />
             )}
           </div>
         </div>

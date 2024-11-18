@@ -4,8 +4,7 @@ import { RoutePathsE } from '../../App/routes';
 import useNavBar from './useNavBar';
 import DropdownFiatCurrency from '../DropdownFiatCurrency';
 import SearchBar from '../SearchBar';
-
-import { MdSearch } from 'react-icons/md';
+import SearchOutlined from '@ant-design/icons/lib/icons/SearchOutlined';
 
 import { breakpoints } from '../../consts/responsive';
 import SearchBarXS from '../SearchBarXS';
@@ -29,8 +28,8 @@ const NavBar = (): React.JSX.Element => {
             <div className="hidden md:block">
               <SearchBar />
             </div>
-            <MdSearch
-              className="text-gray-500 text-base md:hidden"
+            <SearchOutlined
+              className="text-gray-700 text-base md:hidden"
               onClick={updateIsSearchIconClicked.bind(this, true)}
             />
           </li>
