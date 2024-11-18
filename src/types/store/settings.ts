@@ -1,8 +1,8 @@
-export type ThemesI = 'light' | 'dark'
+export type ThemesI = 'light' | 'dark';
 export type SettingsStateI = {
-  theme: ThemesI
-}
+  theme: ThemesI;
+};
 export type ToggleThemeActionI = {
   payload: ThemesI;
   type: string;
-} 
+};

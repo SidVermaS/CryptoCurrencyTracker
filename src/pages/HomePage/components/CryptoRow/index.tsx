@@ -12,7 +12,7 @@ const CryptoRow = (props: CryptoRowPropsI): React.JSX.Element => {
   );
   const { formatNumber } = useNumber();
   return (
-    <tr className="hover:bg-slate-100 dark:text-primary-dark dark:hover:bg-gray-900">
+    <tr className="hover:bg-loiter-light dark:hover:bg-loiter-dark dark:text-primary-dark ">
       <td className="py-1 md:py-3 pl-1 md:pl-3">
         <AvatarInfo {...props} />
       </td>

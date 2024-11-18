@@ -9,10 +9,7 @@ const App = (): React.JSX.Element => {
     <>
       <NavBar />
       <main className="pt-12 md:pt-16">
-        <React.Suspense
-          fallback={
-            <Fallback />
-          }>
+        <React.Suspense fallback={<Fallback />}>
           <Routes>
             {routes.map((route) => (
               <Route

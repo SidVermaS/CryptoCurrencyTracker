@@ -18,7 +18,8 @@ const SearchBar = (): React.JSX.Element => {
     <>
       <div
         ref={searchBarRef}
-        className="flex items-center w-[20rem] rounded-full border focus:none justify-between px-3 py-0.5 dark:border-tertiary-dark">
+        className="flex items-center w-[20rem] rounded-full border focus:none justify-between px-3 py-0.5 dark:border-tertiary-dark"
+      >
         <SearchOutlined className="text-gray-400 text-base" />
         <input
           className="mx-1 outline-none caret-purple-500 font-light bg-primary-light dark:bg-primary-dark dark:text-primary-dark"
@@ -30,7 +31,8 @@ const SearchBar = (): React.JSX.Element => {
         />
         <div
           className="font-light text-2xl items-center text-gray-400 text-center cursor-pointer"
-          onClick={clearSearchText}>
+          onClick={clearSearchText}
+        >
           &times;
         </div>
       </div>

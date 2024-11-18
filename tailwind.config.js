@@ -17,7 +17,11 @@ export default {
         },
         tertiary: {
           light: colors.gray['200'],
-          dark:  colors.gray['700'],
+          dark: colors.gray['700'],
+        },
+        loiter: {
+          light: colors.purple['100'],
+          dark: colors.purple['900'],
         },
       },
       textColor: {

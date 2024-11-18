@@ -1,5 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { FiatCurrenciesStateI, SelectFiatCurrencyActionI } from '../../types/store/fiatCurrencies';
+import {
+  FiatCurrenciesStateI,
+  SelectFiatCurrencyActionI,
+} from '../../types/store/fiatCurrencies';
 import { fiatCurrencies } from '../../assets/data/fiatCurrencies';
 
 const initialState: FiatCurrenciesStateI = {

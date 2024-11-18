@@ -2,7 +2,10 @@ import { createSlice, current } from '@reduxjs/toolkit';
 import { CryptoCurrenciesStateI } from '../../types/store/cryptoCurrencies';
 import { fetchCryptoCurrencies } from '../thunks/currencies';
 import { MAX_RECENTLY_SEARCHED_CRYPTO_CURRENCIES_LIMIT } from '../../consts/cryptoCurrencies';
-import { BooleanPayloadActionI, StringPayloadActionI } from '../../types/store/store';
+import {
+  BooleanPayloadActionI,
+  StringPayloadActionI,
+} from '../../types/store/store';
 
 const initialState: CryptoCurrenciesStateI = {
   searchedText: '',
@@ -16,7 +19,10 @@ export const cryptoCurrenciesSlice = createSlice({
   name: 'cryptoCurrencies',
   initialState,
   reducers: {
-    addRecentlySearchedCryptoCurrency: (state, action: StringPayloadActionI) => {
+    addRecentlySearchedCryptoCurrency: (
+      state,
+      action: StringPayloadActionI,
+    ) => {
       // id of the searched crypto currency
       const id = action.payload;
 
@@ -48,7 +54,10 @@ export const cryptoCurrenciesSlice = createSlice({
       state.searchedText = '';
       state.cryptoCurrenciesForAutocomplete = [];
     },
-    updateAutocompleteForCryptoCurrencies: (state, action: BooleanPayloadActionI) => {
+    updateAutocompleteForCryptoCurrencies: (
+      state,
+      action: BooleanPayloadActionI,
+    ) => {
       const isFocused = action.payload;
       if (isFocused) {
         state.cryptoCurrenciesForAutocomplete =

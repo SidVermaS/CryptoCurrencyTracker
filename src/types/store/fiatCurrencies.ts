@@ -5,10 +5,10 @@ export type FiatCurrencyI = {
   image: string;
   symbol: string;
 };
-export type SelectFiatCurrencyActionI =  {
+export type SelectFiatCurrencyActionI = {
   payload: string;
   type: string;
-}
+};
 export type FiatCurrenciesStateI = {
   fiatCurrencies: FiatCurrencyI[];
   selectedFiatCurrency: FiatCurrencyI;

@@ -20,7 +20,9 @@ const AutoComplete = (props: AutoCompletePropsI): React.JSX.Element => {
             ))}
           </div>
         ) : (
-          <div className="py-2 px-3 font-light dark:text-primary-dark">No results found</div>
+          <div className="py-2 px-3 font-light dark:text-primary-dark">
+            No results found
+          </div>
         )
       ) : cryptoCurrenciesForAutocomplete?.length ? (
         <div className="py-2 px-3 cursor-pointer">

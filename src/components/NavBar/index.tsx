@@ -26,7 +26,8 @@ const NavBar = (): React.JSX.Element => {
       <div className="p-3 md:p-4 flex items-center justify-between">
         <Link
           className="flex items-center font-normal dark:text-primary-dark"
-          to={RoutePathsE.HomePage}>
+          to={RoutePathsE.HomePage}
+        >
           <img className="w-6 h-6 mr-2" src="/bitcoin-btc-logo.png" alt="" />
           Crypto Tracker
         </Link>
@@ -43,9 +44,12 @@ const NavBar = (): React.JSX.Element => {
           <li className="">
             <DropdownFiatCurrency />
           </li>
-          <li className=" " onClick={updateTheme}>
+          <li
+            className="hover:bg-loiter-light dark:hover:bg-loiter-dark rounded-lg w-9 h-9 flex justify-center items-center"
+            onClick={updateTheme}
+          >
             {theme === 'light' ? (
-              <SunOutlined className="text-gray-500 text-base dark:text-primary-dark" />
+              <SunOutlined className="text-gray-500  text-base dark:text-primary-dark" />
             ) : (
               <MoonOutlined className="text-gray-500 text-base " />
             )}

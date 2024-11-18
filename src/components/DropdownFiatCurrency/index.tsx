@@ -15,9 +15,10 @@ const DropdownFiatCurrency = (): React.JSX.Element => {
     <>
       <button
         type="button"
-        className="flex items-center space-x-1.5 hover:bg-gray-300 px-2 py-1 md:px-3 md:py-2 rounded-md dark:hover:bg-gray-900"
+        className="flex items-center space-x-1.5 hover:bg-loiter-light px-2 py-1 md:px-3 md:py-2 rounded-md dark:hover:bg-loiter-dark"
         data-dropdown-toggle="fiat-currency-dropdown-menu"
-        onClick={toggleDropdown}>
+        onClick={toggleDropdown}
+      >
         <img
           className="rounded-full w-5 h-5"
           src={selectedFiatCurrency.image}
@@ -28,12 +29,14 @@ const DropdownFiatCurrency = (): React.JSX.Element => {
       </button>
       <div
         ref={dropdownRef}
-        className={`${isDropdownOpen ? '' : 'hidden'} absolute z-50 bg-white rounded-md py-2 dark:bg-primary-dark`}>
+        className={`${isDropdownOpen ? '' : 'hidden'} absolute z-50 bg-white rounded-md py-2 dark:bg-primary-dark`}
+      >
         <ul id="fiat-currency-dropdown-menu">
           {fiatCurrencies.map((fiatCurrency) => (
             <li
               key={fiatCurrency.id}
-              onClick={handleFiatCurrencySelection.bind(this, fiatCurrency.id)}>
+              onClick={handleFiatCurrencySelection.bind(this, fiatCurrency.id)}
+            >
               <FiatCurrency {...fiatCurrency} />
             </li>
           ))}

@@ -1,5 +1,5 @@
-import React from "react"
+import React from 'react';
 
 export type LayoutPropsI = {
-  children: React.JSX.Element
-}
+  children: React.JSX.Element;
+};
