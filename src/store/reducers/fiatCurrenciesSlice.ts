@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { FiatCurrenciesStateI } from '../../types/store/fiatCurrencies';
+import { FiatCurrenciesStateI, SelectFiatCurrencyActionI } from '../../types/store/fiatCurrencies';
 import { fiatCurrencies } from '../../assets/data/fiatCurrencies';
 
 const initialState: FiatCurrenciesStateI = {
@@ -10,7 +10,7 @@ export const fiatCurrenciesSlice = createSlice({
   name: 'fiatCurrencies',
   initialState,
   reducers: {
-    selectFiatCurrency: (state, action) => {
+    selectFiatCurrency: (state, action: SelectFiatCurrencyActionI) => {
       // Searches for the fiat currency in our list whose id is matching
       const selectedFiatCurrency = state.fiatCurrencies.find(
         (item) => item.id === action.payload,

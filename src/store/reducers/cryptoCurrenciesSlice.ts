@@ -2,6 +2,7 @@ import { createSlice, current } from '@reduxjs/toolkit';
 import { CryptoCurrenciesStateI } from '../../types/store/cryptoCurrencies';
 import { fetchCryptoCurrencies } from '../thunks/currencies';
 import { MAX_RECENTLY_SEARCHED_CRYPTO_CURRENCIES_LIMIT } from '../../consts/cryptoCurrencies';
+import { BooleanPayloadActionI, StringPayloadActionI } from '../../types/store/store';
 
 const initialState: CryptoCurrenciesStateI = {
   searchedText: '',
@@ -15,7 +16,7 @@ export const cryptoCurrenciesSlice = createSlice({
   name: 'cryptoCurrencies',
   initialState,
   reducers: {
-    addRecentlySearchedCryptoCurrency: (state, action) => {
+    addRecentlySearchedCryptoCurrency: (state, action: StringPayloadActionI) => {
       // id of the searched crypto currency
       const id = action.payload;
 
@@ -47,7 +48,7 @@ export const cryptoCurrenciesSlice = createSlice({
       state.searchedText = '';
       state.cryptoCurrenciesForAutocomplete = [];
     },
-    updateAutocompleteForCryptoCurrencies: (state, action) => {
+    updateAutocompleteForCryptoCurrencies: (state, action: BooleanPayloadActionI) => {
       const isFocused = action.payload;
       if (isFocused) {
         state.cryptoCurrenciesForAutocomplete =
@@ -69,9 +70,9 @@ export const cryptoCurrenciesSlice = createSlice({
     resetSearchedCryptoCurrencies: (state) => {
       state.recentlySearchedCryptoCurrencies = [];
     },
-    searchCryptoCurrency: (state, action) => {
-      state.searchedText = String(action.payload);
-      const searchedText: string = String(action.payload).toLowerCase();
+    searchCryptoCurrency: (state, action: StringPayloadActionI) => {
+      state.searchedText = action.payload;
+      const searchedText: string = action.payload.toLowerCase();
       // Filter CryptoCurrencies if the searchedText exists in id, name & symbol
       const filteredCryptoCurrencies = state.cryptoCurrencies.filter(
         (cryptoCurrency) =>

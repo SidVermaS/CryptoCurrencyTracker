@@ -1,5 +1,5 @@
-import { SearchOutlined } from '@ant-design/icons';
 import React from 'react';
+import {MdSearch} from 'react-icons/md'
 import useSearchBar from './useSearchBar';
 import AutoComplete from '../AutoComplete';
 
@@ -20,7 +20,7 @@ const SearchBar = (): React.JSX.Element => {
         ref={searchBarRef}
         className="flex items-center w-[20rem] rounded-full border focus:none justify-between px-3 py-0.5"
       >
-        <SearchOutlined className="text-gray-400 text-base" />
+        <MdSearch className="text-gray-400 text-base" />
         <input
           className="mx-1 outline-none caret-purple-500 font-light"
           type="search"
