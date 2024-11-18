@@ -27,6 +27,10 @@ export default {
       textColor: {
         primary: { light: colors.white, dark: colors.white },
         secondary: { light: colors.white, dark: colors.gray['400'] },
+        loiter: {
+          light: colors.purple['100'],
+          dark: colors.white,
+        },
       },
     },
   },
