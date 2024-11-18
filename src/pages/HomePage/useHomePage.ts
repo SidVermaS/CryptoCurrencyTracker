@@ -1,8 +1,9 @@
 import React from 'react';
 import { MINUTES_5 } from '../../consts/time';
-import { useAppDispatch } from '../../store/store';
+import { RootStateI, useAppDispatch } from '../../store/store';
 import { fetchCryptoCurrencies } from '../../store/thunks/currencies';
 import { CryptoHeadColumnI } from './types';
+import { useSelector } from 'react-redux';
 export const cryptoTableColumns: CryptoHeadColumnI[] = [
   { className: 'text-left pl-3', title: 'Coin' },
   { className: 'text-right pr-3', title: 'Price' },
@@ -11,6 +12,7 @@ export const cryptoTableColumns: CryptoHeadColumnI[] = [
 ];
 const useHomePage = () => {
   const dispatch = useAppDispatch();
+  const {isLoadingCryptoCurrencies}=useSelector((state:RootStateI)=>state.cryptoCurrencies)
   // Updates the latest data after every 5 minutes
   React.useEffect(() => {
     dispatch(fetchCryptoCurrencies());
@@ -23,6 +25,6 @@ const useHomePage = () => {
       intervalRef = null;
     };
   }, [dispatch]);
-  return { cryptoTableColumns };
+  return { cryptoTableColumns,isLoadingCryptoCurrencies };
 };
 export default useHomePage;

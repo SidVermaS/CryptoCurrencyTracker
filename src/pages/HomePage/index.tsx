@@ -1,12 +1,17 @@
 import React from 'react';
 import CryptoTable from './components/CryptoTable';
 import useHomePage from './useHomePage';
+import Loader from '../../components/Loader';
 
 const HomePage = (): React.JSX.Element => {
-  const { cryptoTableColumns } = useHomePage();
+  const { cryptoTableColumns, isLoadingCryptoCurrencies } = useHomePage();
   return (
     <div className="flex items-center justify-center min-h-screen sm:py-4 md:py-10 ">
-      <CryptoTable columns={cryptoTableColumns} />
+      {isLoadingCryptoCurrencies ? (
+        <Loader/>
+      ) : (
+        <CryptoTable columns={cryptoTableColumns} />
+      )}
     </div>
   );
 };
