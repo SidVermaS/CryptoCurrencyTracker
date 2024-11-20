@@ -4,7 +4,7 @@ On this responsive web app (supporting light/dark themes), we can search for the
 
 ## Steps to run the application on local
 
-1. Installs the all of the pacakges
+1. Installs all of the pacakges
 
 ```bash
 npm i
